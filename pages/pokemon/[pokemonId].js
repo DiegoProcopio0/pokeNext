@@ -1,5 +1,6 @@
-import Image from "next/image";
 import styles from "../../styles/Pokemon.module.css";
+
+import Image from "next/image";
 
 export const getStaticPaths = async () => {
   const maxPokemons = 251;
@@ -34,13 +35,14 @@ export const getStaticProps = async (context) => {
 };
 
 export default function Pokemon({ pokemon }) {
+  console.log(pokemon);
   return (
     <div className={styles.pokemon_container}>
-      <h1 className={styles.pokemon_title}>{pokemon.name}</h1>
+      <h1 className={styles.title}>{pokemon.name}</h1>
       <Image
         src={`https://cdn.traction.one/pokedex/pokemon/${pokemon.id}.png`}
-        width="120"
-        height="120"
+        width="200"
+        height="200"
         alt={pokemon.name}
       />
       <div>
